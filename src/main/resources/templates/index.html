@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Joke Generator</title>
@@ -14,7 +14,9 @@
 <body>
 <div class="toparea">
     <img src="https://cloudinary.hbscdn.org/image/upload/s--jBqgukLU--/q_auto,c_fill,h_1296,w_2800,/v20071006/9A584B953CA7A5D8F6738BE550C5FC26.jpg" alt="Joke Pic" for="" id="" width="1000" height="300">
-    <div class="center" id="joketext" for="">Joke appears here</div>
+    <div class="center" id="joketext" for="">
+        <p th:text=${joke}></p>
+    </div>
     <br>
     <br>
     <button type="button">New random joke!</button> </div>
