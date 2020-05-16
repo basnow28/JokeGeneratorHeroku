@@ -17,10 +17,10 @@ public class DataRepository {
     JdbcTemplate template;
 
     public Joke getRandomJoke() {
-        String sql = "SELECT * from jokes";
+        String sql = "SELECT * from jokes;";
         RowMapper<Joke> rowMapper = new BeanPropertyRowMapper<>(Joke.class);
         List<Joke> jokes = template.query(sql, rowMapper);
-        System.out.println(jokes.toString());
+        jokes.forEach(j -> System.out.println(j.getJoke_id() + j.getJoke()));
         return selectRandomJoke(jokes);
     }
 

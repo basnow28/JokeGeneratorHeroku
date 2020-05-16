@@ -21,4 +21,11 @@ public class HomeController {
         model.addAttribute("joke", joke.getJoke());
         return "index.html";
     }
+    @RequestMapping(value = "/generateNewJoke")
+    public String generateNewJoke(Model model){
+        Joke joke = jokeService.getRandomJoke();
+        System.out.println("requestAJoke" + joke.getJoke());
+        model.addAttribute("joke", joke.getJoke());
+        return "index.html";
+    }
 }
