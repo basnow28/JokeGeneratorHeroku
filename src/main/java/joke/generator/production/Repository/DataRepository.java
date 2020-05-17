@@ -32,6 +32,12 @@ public class DataRepository {
         Random random = new Random();
         return jokes.get(random.nextInt(jokes.size()));
     }
+    public Joke updateJoke(Joke joke){
+        String sql = "UPDATE jokes SET joke_text=? WHERE jokes.joke_id =?";
+        template.update(sql, joke.getJoke_text(), joke.getJoke_id());
+        return null;
+    }
+
 
 
 }

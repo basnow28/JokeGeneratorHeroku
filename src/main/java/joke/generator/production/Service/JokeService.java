@@ -18,4 +18,5 @@ public class JokeService {
     public void addNewJoke(Joke joke){
         dataRepository.addNewJoke(joke);
     }
+    public Joke updateJoke(Joke joke){return dataRepository.updateJoke(joke);}
 }
