@@ -17,11 +17,11 @@ public class Joke {
         this.joke_id = joke_id;
     }
 
-    public String getJoke() {
+    public String getJoke_text() {
         return joke_text;
     }
 
-    public void setJoke(String joke_text) {
+    public void setJoke_text(String joke_text) {
         this.joke_text = joke_text;
     }
 }

@@ -17,15 +17,21 @@ public class DataRepository {
     JdbcTemplate template;
 
     public Joke getRandomJoke() {
-        String sql = "SELECT * from jokes;";
+        String sql = "SELECT * from jokes";
         RowMapper<Joke> rowMapper = new BeanPropertyRowMapper<>(Joke.class);
         List<Joke> jokes = template.query(sql, rowMapper);
-        jokes.forEach(j -> System.out.println(j.getJoke_id() + j.getJoke()));
         return selectRandomJoke(jokes);
+    }
+
+    public void addNewJoke(Joke joke){
+        String sql = "INSERT INTO jokes (joke_text) VALUES (?)";
+        template.update(sql, joke.getJoke_text());
     }
 
     private Joke selectRandomJoke(List<Joke> jokes){
         Random random = new Random();
         return jokes.get(random.nextInt(jokes.size()));
     }
+
+
 }

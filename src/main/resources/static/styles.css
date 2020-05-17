@@ -3,7 +3,10 @@ header{
     font-family: "Cambria Math";
     text-align: center;
 }
-
+td{
+    height: 30px;
+    width: 40px;
+}
 body{
     font-family: "Cambria Math";
     text-align: center;
@@ -19,6 +22,10 @@ body{
 .bottomarea{
     padding: 20px;
     margin: 20px;
+    height:200px;
+    width:200px;
+    justify-content: center;
+    align-content: center;
 }
 
 .center {

@@ -14,4 +14,8 @@ public class JokeService {
     public Joke getRandomJoke() {
         return dataRepository.getRandomJoke();
     }
+
+    public void addNewJoke(Joke joke){
+        dataRepository.addNewJoke(joke);
+    }
 }

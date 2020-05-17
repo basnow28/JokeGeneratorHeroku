@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Joke Generator</title>
@@ -28,11 +28,8 @@
 <h2>Don't like our jokes? Enter your own.</h2>
 <br>
 <div class="bottomarea">
-    <form action="">
-    <textarea id="newjoke" rows="20" cols="50">
-    Type your joke here
-    </textarea>
-        <br>
+    <form th:action="@{'/addNewJoke'}" method="post" th:object="${joke}">
+        <input type="text" name="joke_text">
         <input type="submit" value="Submit">
     </form>
 </div>
@@ -40,7 +37,7 @@
 
 <footer>
     <div>
-        Made by Dagmara Przgocka, Basia Rekowska, Maja Miskeri and David Hards.
+        Made by Dagmara Przygocka, Basia Rekowska, Maja Miskeri and David Hards.
     </div>
 </footer>
 
