@@ -19,7 +19,6 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model){
         Joke joke = jokeService.getRandomJoke();
-        System.out.println("joke" + joke);
         model.addAttribute("joke", joke.getJoke_text());
         return "index.html";
     }
