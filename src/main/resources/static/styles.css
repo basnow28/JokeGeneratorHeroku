@@ -60,3 +60,9 @@ footer {
     text-align: center;
     font-family: "Cambria Math";
 }
+
+.button{
+    padding: 4px;
+    margin: 4px;
+}
+

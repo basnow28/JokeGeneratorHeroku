@@ -39,5 +39,11 @@ public class DataRepository {
     }
 
 
+    public void deleteJoke(Joke joke){
+        String sql = "DELETE from jokes WHERE joke_id = ?";
+        template.update(sql, joke.getJoke_id());
+
+    }
+
 
 }
