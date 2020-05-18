@@ -24,4 +24,5 @@ public class Joke {
     public void setJoke_text(String joke_text) {
         this.joke_text = joke_text;
     }
+
 }

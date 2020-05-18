@@ -40,4 +40,10 @@ public class HomeController {
         jokeService.addNewJoke(joke);
         return "redirect:/";
     }
+
+    @PostMapping("/deleteJoke")
+    public String deleteJoke(@ModelAttribute Joke joke){
+        jokeService.deleteJoke(joke);
+        return "index.html";
+    }
 }
