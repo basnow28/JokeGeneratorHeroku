@@ -28,7 +28,7 @@
     <button type="button" class="button">New random joke!</button>
     </a>
     <br>
-    <a th:href="@{'/deleteJoke'}">
+    <a th:href="@{'/deleteJoke/'+${joke.joke_id}}">
         <button type="button" class="button">Delete current joke</button>
     </a>
 </div>

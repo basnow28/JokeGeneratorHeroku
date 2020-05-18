@@ -6,10 +6,7 @@ import joke.generator.production.Service.JokeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -19,7 +16,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model){
         Joke joke = jokeService.getRandomJoke();
-        model.addAttribute("joke", joke.getJoke_text());
+        model.addAttribute("joke", joke);
         return "index.html";
     }
     @RequestMapping(value = "/generateNewJoke")
@@ -41,10 +38,10 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PostMapping("/deleteJoke")
-    public String deleteJoke(@ModelAttribute Joke joke){
-        jokeService.deleteJoke(joke);
-        return "index.html";
+    @GetMapping("/deleteJoke/{joke.joke_id}")
+    public String deleteJoke(@PathVariable ("joke.joke_id") int jokeid){
+        jokeService.deleteJoke(jokeid);
+        return "redirect:/";
     }
 
     @PostMapping("/updateJoke")

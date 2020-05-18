@@ -19,7 +19,7 @@ public class JokeService {
         dataRepository.addNewJoke(joke);
     }
 
-    public void deleteJoke(Joke joke) { dataRepository.deleteJoke(joke);}
+    public void deleteJoke(int jokeid) { dataRepository.deleteJoke(jokeid);}
 
     public Joke updateJoke(Joke joke){return dataRepository.updateJoke(joke);}
 

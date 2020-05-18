@@ -39,9 +39,9 @@ public class DataRepository {
     }
 
 
-    public void deleteJoke(Joke joke){
+    public void deleteJoke(int jokeid){
         String sql = "DELETE from jokes WHERE joke_id = ?";
-        template.update(sql, joke.getJoke_id());
+        template.update(sql, jokeid);
 
     }
 
