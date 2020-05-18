@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class Joke {
     @Id
-    private int joke_id;
+    public int joke_id;
     public String joke_text;
 
     public int getJoke_id() {

@@ -15,7 +15,12 @@
 <div class="toparea">
     <img src="https://cloudinary.hbscdn.org/image/upload/s--jBqgukLU--/q_auto,c_fill,h_1296,w_2800,/v20071006/9A584B953CA7A5D8F6738BE550C5FC26.jpg" alt="Joke Pic" for="" id="" width="1000" height="300">
     <div class="center" id="joketext" for="">
-        <p th:text=${joke}></p>
+        <form action="/updateJoke" method="post">
+            <input type="hidden" name="joke_id" th:value="${joke.joke_id}">
+            <textarea rows="5" cols="80" th:field="${joke.joke_text}">
+            </textarea></br>
+            <input type="submit" value="Update Joke!">
+        </form>
     </div>
     <br>
     <br>
@@ -33,7 +38,7 @@
 <br>
 <div class="bottomarea">
     <form th:action="@{'/addNewJoke'}" method="post" th:object="${joke}">
-        <input type="text" name="joke_text">
+        <input  type="text" name="joke_text">
         <input type="submit" value="Submit">
     </form>
 </div>
