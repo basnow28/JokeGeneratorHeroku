@@ -38,7 +38,6 @@ public class DataRepository {
         return null;
     }
 
-
     public String deleteJoke(int joke_id){ //i want to return string how?
         String sqlCount = "SELECT * from jokes";
         RowMapper<Joke> rowMapper = new BeanPropertyRowMapper<>(Joke.class);

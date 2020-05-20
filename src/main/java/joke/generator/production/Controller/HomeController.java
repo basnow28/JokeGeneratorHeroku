@@ -38,13 +38,12 @@ public class HomeController {
     }
 
     @GetMapping("/deleteJoke/{joke.joke_id}")
-    public String deleteJoke(@PathVariable("joke.joke_id") int joke_id, Model model){
+    public String deleteJoke(@PathVariable("joke.joke_id") int joke_id, Model model) {
         String response = jokeService.deleteJoke(joke_id);
         model.addAttribute("response", response);
         Joke joke = jokeService.getRandomJoke();
         model.addAttribute("joke", joke);
         return "index";
-
     }
 
     @PostMapping("/updateJoke")
