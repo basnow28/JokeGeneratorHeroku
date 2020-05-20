@@ -34,8 +34,9 @@
 <br>
 <h2>Don't like our jokes? Enter your own.</h2>
 <div class="bottomarea">
-    <form  th:action="@{'/addNewJoke'}" method="post" th:object="${joke}">
-        <input id="addImput" type="text" name="joke_text"></br>
+    <form  action="/addNewJoke" method="post" >
+        <textarea rows="5" cols="80" name="joke_text">
+            </textarea></br>
         <input class="button" type="submit" value="Submit">
     </form>
 </div>
