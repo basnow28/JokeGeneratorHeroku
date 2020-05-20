@@ -23,9 +23,9 @@ public class DataRepository {
         return selectRandomJoke(jokes);
     }
 
-    public void addNewJoke(Joke joke){
+    public void addNewJoke(String joke_text){
         String sql = "INSERT INTO jokes (joke_text) VALUES (?)";
-        template.update(sql, joke.getJoke_text());
+        template.update(sql, joke_text);
     }
 
     private Joke selectRandomJoke(List<Joke> jokes){
@@ -39,10 +39,20 @@ public class DataRepository {
     }
 
 
-    public void deleteJoke(Joke joke){
-        String sql = "DELETE from jokes WHERE joke_id = ?";
-        template.update(sql, joke.getJoke_id());
+    public String deleteJoke(int joke_id){ //i want to return string how?
+        String sqlCount = "SELECT * from jokes";
+        RowMapper<Joke> rowMapper = new BeanPropertyRowMapper<>(Joke.class);
+        List<Joke> jokes = template.query(sqlCount, rowMapper);
+        String message;
+        if (jokes.size()>10) {
+            String sql = "DELETE from jokes WHERE joke_id = ?";
+            template.update(sql, joke_id);
+            message = "Joke deleted!";
+        } else{
+            message = "Joke can't be deleted, database have to contain at least 10 jokes.";
 
+        }
+        return message;
     }
 
 

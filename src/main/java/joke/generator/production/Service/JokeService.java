@@ -15,11 +15,11 @@ public class JokeService {
         return dataRepository.getRandomJoke();
     }
 
-    public void addNewJoke(Joke joke){
-        dataRepository.addNewJoke(joke);
+    public void addNewJoke(String joke_text){
+        dataRepository.addNewJoke(joke_text);
     }
 
-    public void deleteJoke(Joke joke) { dataRepository.deleteJoke(joke);}
+    public String deleteJoke(int joke_id) { return dataRepository.deleteJoke(joke_id);} //string?
 
     public Joke updateJoke(Joke joke){return dataRepository.updateJoke(joke);}
 

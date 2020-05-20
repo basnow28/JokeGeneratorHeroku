@@ -17,15 +17,19 @@ body{
     width: auto;
     padding: 20px;
     margin: 20px;
+    background-image: url("https://cloudinary.hbscdn.org/image/upload/s--jBqgukLU--/q_auto,c_fill,h_1296,w_2800,/v20071006/9A584B953CA7A5D8F6738BE550C5FC26.jpg");
+    background-size: 1000px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .bottomarea{
     padding: 20px;
     margin: 20px;
-    height:200px;
-    width:200px;
     justify-content: center;
-    align-content: center;
+    text-align: center;
+    height: 200px;
 }
 
 .center {
@@ -33,7 +37,6 @@ body{
     left: 0;
     top: 50%;
     width: 100%;
-    text-align: center;
     font-size: 18px;
 }
 
@@ -49,6 +52,10 @@ img {
     text-align: center;
 
 }
+#addImput{
+    width: 500px;
+    height: 100px;
+}
 footer {
     position: fixed;
     padding: 10px;
@@ -60,9 +67,22 @@ footer {
     text-align: center;
     font-family: "Cambria Math";
 }
+form{
+    text-align: center;
+}
+
+textarea{
+    text-align: justify;
+    width: 500px;
+    height: 100px;
+    resize: none;
+    padding: 20px;
+}
 
 .button{
     padding: 4px;
+    width: 150px;
+    height: 30px;
     margin: 4px;
 }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Joke Generator</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <header>
@@ -13,33 +13,29 @@
 <br>
 <body>
 <div class="toparea">
-    <img src="https://cloudinary.hbscdn.org/image/upload/s--jBqgukLU--/q_auto,c_fill,h_1296,w_2800,/v20071006/9A584B953CA7A5D8F6738BE550C5FC26.jpg" alt="Joke Pic" for="" id="" width="1000" height="300">
-    <div class="center" id="joketext" for="">
         <form action="/updateJoke" method="post">
             <input type="hidden" name="joke_id" th:value="${joke.joke_id}">
             <textarea rows="5" cols="80" th:field="${joke.joke_text}">
             </textarea></br>
-            <input type="submit" value="Update Joke!">
+            <input class="button" type="submit" value="Update Joke!">
         </form>
-    </div>
-    <br>
-    <br>
+
     <a th:href="@{'/generateNewJoke'}">
     <button type="button" class="button">New random joke!</button>
+    </a></br>
+
+    <a th:href="@{'/deleteJoke/'+${joke.joke_id}}">
+        <button type="button" class="button">Delete joke!</button>
     </a>
-    <br>
-    <a th:href="@{'/deleteJoke'}">
-        <button type="button" class="button">Delete current joke</button>
-    </a>
+    <p th:text="${response} "></p>
 </div>
 <br>
 <br>
 <h2>Don't like our jokes? Enter your own.</h2>
-<br>
 <div class="bottomarea">
-    <form th:action="@{'/addNewJoke'}" method="post" th:object="${joke}">
-        <input  type="text" name="joke_text">
-        <input type="submit" value="Submit">
+    <form  th:action="@{'/addNewJoke'}" method="post" th:object="${joke}">
+        <input id="addImput" type="text" name="joke_text"></br>
+        <input class="button" type="submit" value="Submit">
     </form>
 </div>
 </body>

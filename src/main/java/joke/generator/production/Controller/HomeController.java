@@ -6,10 +6,7 @@ import joke.generator.production.Service.JokeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -19,8 +16,8 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model){
         Joke joke = jokeService.getRandomJoke();
-        model.addAttribute("joke", joke.getJoke_text());
-        return "index.html";
+        model.addAttribute("joke", joke);
+        return "index";
     }
     @RequestMapping(value = "/generateNewJoke")
     public String generateNewJoke(Model model){
@@ -28,23 +25,26 @@ public class HomeController {
         model.addAttribute("joke", joke); //!!!!!!!!!!!!!!!!!!!!!!!
         return "index";
     }
-
-    @GetMapping("/addNewJoke")
+    @GetMapping("/addNewJoke") //?????????????????????????????????????????????????????//
     String addNewJoke(Model model){
         model.addAttribute("newJokeAdded", "New joke added :)");
         return "index.html";
     }
 
     @PostMapping("/addNewJoke")
-    public String addNewJoke(@ModelAttribute Joke joke){
-        jokeService.addNewJoke(joke);
+    public String addNewJoke(@RequestParam String joke_text){
+        jokeService.addNewJoke(joke_text);
         return "redirect:/";
     }
 
-    @PostMapping("/deleteJoke")
-    public String deleteJoke(@ModelAttribute Joke joke){
-        jokeService.deleteJoke(joke);
-        return "index.html";
+    @GetMapping("/deleteJoke/{joke.joke_id}")
+    public String deleteJoke(@PathVariable("joke.joke_id") int joke_id, Model model){
+        String response = jokeService.deleteJoke(joke_id);
+        model.addAttribute("response", response);
+        Joke joke = jokeService.getRandomJoke();
+        model.addAttribute("joke", joke);
+        return "index";
+
     }
 
     @PostMapping("/updateJoke")
