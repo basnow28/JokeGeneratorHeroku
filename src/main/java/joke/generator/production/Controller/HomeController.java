@@ -43,7 +43,7 @@ public class HomeController {
         model.addAttribute("response", response);
         Joke joke = jokeService.getRandomJoke();
         model.addAttribute("joke", joke);
-        return "index";
+        return "redirect:/";
     }
 
     @PostMapping("/updateJoke")
