@@ -17,13 +17,13 @@ public class HomeController {
     public String index(Model model){
         Joke joke = jokeService.getRandomJoke();
         model.addAttribute("joke", joke);
-        return "index";
+        return "index.html";
     }
     @RequestMapping(value = "/generateNewJoke")
     public String generateNewJoke(Model model){
         Joke joke = jokeService.getRandomJoke();
         model.addAttribute("joke", joke); //!!!!!!!!!!!!!!!!!!!!!!!
-        return "index";
+        return "index.html";
     }
     @GetMapping("/addNewJoke") //?????????????????????????????????????????????????????//
     String addNewJoke(Model model){
@@ -49,6 +49,6 @@ public class HomeController {
     @PostMapping("/updateJoke")
     public String updateJoke(@ModelAttribute Joke joke){
         jokeService.updateJoke(joke);
-        return "index";
+        return "index.html";
     }
 }
